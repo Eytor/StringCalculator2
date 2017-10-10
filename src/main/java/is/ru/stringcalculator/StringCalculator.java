@@ -9,6 +9,14 @@ public class StringCalculator {
         String nums[] = numbers.split(",",2);
         return add(nums[0]) + add(nums[1]);
       }
+      if(numbers.contains("\n")) {
+        String nums[] = numbers.split("\n");
+        int ammount = 0;
+        for(String n:nums) {
+          ammount += intParser(n);
+        }
+        return ammount;
+      }
       return intParser(numbers);
     }
 
