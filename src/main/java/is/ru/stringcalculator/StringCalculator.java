@@ -7,8 +7,7 @@ public class StringCalculator {
       }
       if(numbers.startsWith("//")){
         String delimiter = numbers.substring(2, numbers.indexOf("\n"));
-        numbers = numbers.substring(numbers.indexOf("\n") + 1, numbers.length());
-        numbers = numbers.replace(delimiter, ",");
+        return add(newDelimiter(delimiter, numbers));        
       }
       if(numbers.contains("-")) {
         throw new IllegalArgumentException("Negatives Not Allowed: " + getNegatives(numbers));
@@ -49,6 +48,12 @@ public class StringCalculator {
         }
         return negatives;
       }
+      return numbers;
+    }
+
+    public String newDelimiter(String delimiter, String numbers) {
+      numbers = numbers.substring(numbers.indexOf("\n") + 1, numbers.length());
+      numbers = numbers.replace(delimiter, ",");
       return numbers;
     }
 }
