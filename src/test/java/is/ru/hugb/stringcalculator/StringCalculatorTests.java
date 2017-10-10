@@ -42,4 +42,9 @@ public class StringCalculatorTests {
     StringCalculator calc = new StringCalculator();
     assertEquals(2, calc.add("1001,2"));
   }
+  @Test
+  public void TestDelimeter() {
+    StringCalculator calc = new StringCalculator();
+    assertEquals(3, calc.add("//;\n1;2"));
+  }
 }

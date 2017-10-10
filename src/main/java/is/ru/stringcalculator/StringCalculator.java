@@ -5,6 +5,11 @@ public class StringCalculator {
       if(numbers == "") {
         return 0;
       }
+      if(numbers.startsWith("//")){
+        String delimiter = numbers.substring(2, numbers.indexOf("\n"));
+        numbers = numbers.substring(numbers.indexOf("\n") + 1, numbers.length());
+        numbers = numbers.replace(delimiter, ",");
+      }
       if(numbers.contains("-")) {
         throw new IllegalArgumentException("Negatives Not Allowed: " + getNegatives(numbers));
       }
