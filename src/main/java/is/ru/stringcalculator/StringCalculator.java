@@ -2,6 +2,9 @@ package is.ru.hugb.stringcalculator;
 
 public class StringCalculator {
     public int add(String numbers) {
-        return true;
+      if(numbers == "") {
+        return 0;
+      }
+        return 0;
     }
 }
