@@ -5,6 +5,24 @@ public class StringCalculator {
       if(numbers == "") {
         return 0;
       }
+      if(numbers.contains("-")) {
+        String negatives = "";
+        numbers.replace("\n",",");
+        if(numbers.contains(",")) {
+          String nums[] = numbers.split(",");
+          for(String n: nums) {
+            if(n.contains("-")) {
+              if(negatives == "") {
+                negatives += n;
+              }
+              else {
+                negatives += "," + n;
+              }
+            }
+          }
+        }
+        throw new IllegalArgumentException("Negatives Not Allowed: " + negatives);
+      }
       if(numbers.contains(",")) {
         String nums[] = numbers.split(",", 2);
         return add(nums[0]) + add(nums[1]);

@@ -28,4 +28,13 @@ public class StringCalculatorTests {
     StringCalculator calc = new StringCalculator();
     assertEquals(10, calc.add("1,2\n3,4"));
   }
+  @Test
+  public void TestNegative() {
+    try {
+      StringCalculator calc = new StringCalculator();
+      calc.add("1,-2,3");
+    } catch(IllegalArgumentException e) {
+      assertEquals("Negatives Not Allowed: -2", e.getMessage());
+    }
+  }
 }
