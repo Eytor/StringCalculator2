@@ -7,7 +7,11 @@ public class StringCalculator {
       }
       if(numbers.contains(",")) {
         String nums[] = numbers.split(",");
-        return intParser(nums[0])+intParser(nums[1]);
+        int ammount = 0;
+        for(String n:nums) {
+          ammount += intParser(n);
+        }
+        return ammount;
       }
       return intParser(numbers);
     }

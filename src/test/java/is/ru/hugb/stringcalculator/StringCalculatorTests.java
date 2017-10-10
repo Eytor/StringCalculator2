@@ -18,4 +18,9 @@ public class StringCalculatorTests {
     StringCalculator calc = new StringCalculator();
     assertEquals(3, calc.add("1,2"));
   }
+  @Test
+  public void TestUnkownAmmountOfNumbers() {
+    StringCalculator calc = new StringCalculator();
+    assertEquals(10, calc.add("1,2,3,4"));
+  }
 }
