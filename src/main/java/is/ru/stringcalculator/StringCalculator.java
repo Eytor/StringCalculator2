@@ -16,6 +16,9 @@ public class StringCalculator {
         String nums[] = numbers.split("\n", 2);
         return add(nums[0]) + add(nums[1]);
       }
+      if(intParser(numbers) > 1000) {
+        return 0;
+      }
       return intParser(numbers);
     }
 
