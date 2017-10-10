@@ -6,22 +6,7 @@ public class StringCalculator {
         return 0;
       }
       if(numbers.contains("-")) {
-        String negatives = "";
-        numbers.replace("\n",",");
-        if(numbers.contains(",")) {
-          String nums[] = numbers.split(",");
-          for(String n: nums) {
-            if(n.contains("-")) {
-              if(negatives == "") {
-                negatives += n;
-              }
-              else {
-                negatives += "," + n;
-              }
-            }
-          }
-        }
-        throw new IllegalArgumentException("Negatives Not Allowed: " + negatives);
+        throw new IllegalArgumentException("Negatives Not Allowed: " + getNegatives(numbers));
       }
       if(numbers.contains(",")) {
         String nums[] = numbers.split(",", 2);
@@ -36,5 +21,25 @@ public class StringCalculator {
 
     public int intParser(String number) {
       return Integer.parseInt(number);
+    }
+
+    public String getNegatives(String numbers) {
+      String negatives = "";
+      numbers.replace("\n",",");
+      if(numbers.contains(",")) {
+        String nums[] = numbers.split(",");
+        for(String n: nums) {
+          if(n.contains("-")) {
+            if(negatives == "") {
+              negatives += n;
+            }
+            else {
+              negatives += "," + n;
+            }
+          }
+        }
+        return negatives;
+      }
+      return numbers;
     }
 }
